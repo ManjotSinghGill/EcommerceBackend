@@ -4,32 +4,22 @@ import java.util.UUID;
 
 public class Products {
 
-    private final UUID pid;
-    private final UUID catid;
-    private final UUID partid;
+    private final UUID id;
     private final String name;
     private final int price;
-    private final int stock;
+    private final String color;
+    private final String size;
 
-    public Products(UUID pid, UUID catid, UUID partid, String name, int price, int stock) {
-        this.pid = pid;
-        this.catid = catid;
-        this.partid = partid;
+    public Products(UUID id, String name, int price, String color, String size) {
+        this.id = id;
         this.name = name;
         this.price = price;
-        this.stock = stock;
+        this.color = color;
+        this.size = size;
     }
 
     public UUID getId() {
-        return pid;
-    }
-
-    public UUID getCatid() {
-        return catid;
-    }
-
-    public UUID getPartid() {
-        return partid;
+        return id;
     }
 
     public String getName() {
@@ -40,7 +30,11 @@ public class Products {
         return price;
     }
 
-    public int getStock() {
-        return stock;
+    public String getColor() {
+        return color;
+    }
+
+    public String getSize() {
+        return size;
     }
 }
