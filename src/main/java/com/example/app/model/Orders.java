@@ -1,45 +1,31 @@
 package com.example.app.model;
 
-import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 public class Orders {
 
-    private final UUID oid;
+    private final UUID id;
     private final UUID userid;
-    private final UUID partid;
-    private final UUID pid;
-    private final Date date;
+    private final List<String> listOfItems;
     private final int total_price;
 
-    public Orders(UUID oid, UUID userid, UUID partid, UUID pid, Date date, int total_price) {
-        this.oid = oid;
+    public Orders(UUID id, UUID userid, List<String> listOfItems, int total_price) {
+        this.id = id;
         this.userid = userid;
-        this.partid = partid;
-        this.pid = pid;
-        this.date = date;
+        this.listOfItems = listOfItems;
         this.total_price = total_price;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public UUID getOid() {
-        return oid;
+    public UUID getId() {
+        return id;
     }
 
     public UUID getUserid() {
         return userid;
     }
 
-    public UUID getPartid() {
-        return partid;
-    }
-
-    public UUID getPid() {
-        return pid;
-    }
+    public List<String> getListOfItems() {return listOfItems;}
 
     public int getTotal_price() {
         return total_price;
