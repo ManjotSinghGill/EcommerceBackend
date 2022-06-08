@@ -1,5 +1,7 @@
 package com.example.app.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.UUID;
 
 public class Shipment {
@@ -8,7 +10,8 @@ public class Shipment {
     private final String address;
     private final String status;
 
-    public Shipment(UUID sid, UUID oid, String address, String status) {
+    public Shipment(@JsonProperty("id") UUID sid,
+                    @JsonProperty() UUID oid, String address, String status) {
         this.sid = sid;
         this.oid = oid;
         this.address = address;

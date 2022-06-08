@@ -22,4 +22,6 @@ public interface UserDao {
     Optional<User> selectUserByID(UUID id);
 
     List<User> selectAllUser();
+
+    Optional<User> selectUserByEmail(String email);
 }

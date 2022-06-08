@@ -16,7 +16,7 @@ public class PartnerAccessService implements PartnerDao{
 
     @Override
     public int insertPartner(UUID partid, Partner partner) {
-        DB.add(new Partner(partid, partner.getEmail(), partner.getName(), partner.getPassword()));
+        DB.add(new Partner(partid, partner.getEmail(), partner.getName(), partner.getPassword(), partner.getPhone()));
         return 1;
     }
 
@@ -26,7 +26,7 @@ public class PartnerAccessService implements PartnerDao{
                 .map(p -> {
                     int indexOfParnterToUpdate = DB.indexOf(p);
                     if(indexOfParnterToUpdate >=0){
-                        DB.set(indexOfParnterToUpdate, new Partner(partid, partner.getEmail(), partner.getName(), partner.getPassword()));
+                        DB.set(indexOfParnterToUpdate, new Partner(partid, partner.getEmail(), partner.getName(), partner.getPassword(), partner.getPhone()));
                         return 1;
                     }
                     return 0;
@@ -48,6 +48,13 @@ public class PartnerAccessService implements PartnerDao{
     public Optional<Partner> selectPartnerByID(UUID partid) {
         return DB.stream()
                 .filter(partner -> partner.getId().equals(partid))
+                .findFirst();
+    }
+
+    @Override
+    public Optional<Partner> selectPartnerByEmail(String email) {
+        return DB.stream()
+                .filter(partner -> partner.getEmail().equals(email))
                 .findFirst();
     }
 

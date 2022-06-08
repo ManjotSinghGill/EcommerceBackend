@@ -10,15 +10,18 @@ public class Partner {
     private final String email;
     private final String name;
     private final String password;
+    private final String phone;
 
     public Partner(@JsonProperty("partid") UUID partid,
                    @JsonProperty("email") String email,
                    @JsonProperty("name") String name,
-                   @JsonProperty("password") String password) {
+                   @JsonProperty("password") String password,
+                   @JsonProperty("phone") String phone) {
         this.partid = partid;
         this.email = email;
         this.name = name;
         this.password = password;
+        this.phone = phone;
     }
 
 
@@ -36,4 +39,5 @@ public class Partner {
         return password;
     }
 
+    public String getPhone(){return phone;}
 }

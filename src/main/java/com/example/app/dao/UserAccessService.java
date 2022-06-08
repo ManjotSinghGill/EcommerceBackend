@@ -15,7 +15,7 @@ public class UserAccessService implements UserDao {
 
     @Override
     public int insertUser(UUID id, User user) {
-        DB.add(new User(id, user.getEmail(), user.getName()));
+        DB.add(new User(id, user.getEmail(), user.getName(), user.getPassword(), user.getPhone()));
         return 1;
     }
 
@@ -35,7 +35,7 @@ public class UserAccessService implements UserDao {
                 .map(p -> {
                     int indexOfUserToUpdate = DB.indexOf(p);
                     if(indexOfUserToUpdate >=0){
-                        DB.set(indexOfUserToUpdate, new User(id, user.getEmail(), user.getName()));
+                        DB.set(indexOfUserToUpdate, new User(id, user.getEmail(), user.getName(), user.getPassword(), user.getPhone()));
                         return 1;
                     }
                     return 0;
@@ -54,6 +54,13 @@ public class UserAccessService implements UserDao {
     @Override
     public List<User> selectAllUser() {
         return DB;
+    }
+
+    @Override
+    public Optional<User> selectUserByEmail(String email) {
+        return DB.stream()
+                .filter(user -> user.getEmail().equals(email))
+                .findFirst();
     }
 
 

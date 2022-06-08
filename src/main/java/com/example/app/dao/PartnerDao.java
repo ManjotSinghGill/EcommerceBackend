@@ -17,6 +17,8 @@ public interface PartnerDao {
 
     Optional<Partner> selectPartnerByID(UUID partid);
 
+    Optional<Partner> selectPartnerByEmail(String email);
+
     int removePartner(UUID partid);
 
     int updatePartnerByID(UUID partid, Partner partner);
