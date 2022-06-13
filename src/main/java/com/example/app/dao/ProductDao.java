@@ -23,4 +23,5 @@ public interface ProductDao {
 
     List<Products> selectAllProducts();
 
+    List<Products> selectProductByCategory(String category);
 }

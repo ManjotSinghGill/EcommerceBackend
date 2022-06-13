@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RequestMapping("api/controller/product")
@@ -33,5 +34,10 @@ public class ProductController {
     @PutMapping(path = "{id}")
     public void updateProductByID(@PathVariable("id") UUID id, @RequestBody Products product){
         productService.updateProductByID(id, product);
+    }
+
+    @GetMapping(path = "/category/{category}")
+    public List<Products> selectProductByCategory(@PathVariable("category") String category){
+        return productService.selectProductByCategory(category);
     }
 }

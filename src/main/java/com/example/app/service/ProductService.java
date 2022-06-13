@@ -26,4 +26,6 @@ public class ProductService {
     public int removeProduct(UUID id) {return productDao.removeProduct(id);}
 
     public int updateProductByID(UUID id, Products product) { return productDao.updateProduct(id, product);}
+
+    public List<Products> selectProductByCategory(String category) {return productDao.selectProductByCategory(category);}
 }
